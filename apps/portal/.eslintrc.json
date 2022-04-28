@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "angPocAegro",
+            "prefix": "aegro",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "ang-poc-aegro",
+            "prefix": "aegro",
             "style": "kebab-case"
           }
         ]
