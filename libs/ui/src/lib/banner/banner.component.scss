@@ -1,0 +1,28 @@
+.banner {
+    padding: 30px;
+    border: 1px solid var(--primary);
+    background-color: var(--primary-light);
+    border-radius: 5px;
+    position: relative;
+    height: 140px;
+
+    &__description {
+        margin: 0;
+        color: var(--primary);
+        font-size: 3.9rem;
+        width: 66%;
+        line-height: 1.1;
+    }
+
+    &__imagem {
+        position: absolute;
+        width: 280px;
+        right: 0;
+        top: -15px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
