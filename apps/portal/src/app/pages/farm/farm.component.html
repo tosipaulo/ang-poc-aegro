@@ -1,0 +1,26 @@
+<div class="farm">
+    <aegro-banner>
+        <ng-container description>Acompanhe a trajetória completa da safra em um só lugar!</ng-container>
+    </aegro-banner>
+
+    <div class="farm__content  box-container">
+        <button mat-raised-button color="primary">Adicionar fazenda</button>
+        <div class="farm__cards">
+            <ng-container *ngIf="(farm$ | async)?.length">
+                <mat-card class="farm__card" *ngFor="let farm of (farm$ | async)">
+                    <mat-card-header>
+                        <div mat-card-avatar class="farm__card__avatar"></div>
+                        <mat-card-title>{{farm?.name}}</mat-card-title>
+                        <mat-card-subtitle>
+                            {{(farm.chunks.length <= 1) ? 'Talhão ' : 'Talhões '}}
+                            {{farm.chunks.length}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-actions>
+                    </mat-card-actions>
+                </mat-card>
+            </ng-container>
+        </div>
+    </div>
+    
+</div>

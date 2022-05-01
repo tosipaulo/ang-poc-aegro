@@ -72,10 +72,12 @@ $palette-primary: mat-palette($primary-color);
 $palette-secondary: mat-palette($secondary-color);
 $palette-warn: mat-palette($mat-red);
 
-$custom-theme: mat-light-theme(
-    $palette-secondary,
-    $palette-primary,
-    $palette-warn
-);
+$custom-theme: mat-light-theme((
+    color: (
+        primary: $palette-primary,
+        accent: $palette-secondary,
+        warn:$palette-warn
+    )
+));
 
 @include angular-material-theme($custom-theme);

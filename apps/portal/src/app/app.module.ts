@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { FarmModule } from './pages/farm/farm.module';
 import { HeaderModule, InputModule } from '@aegro/ui';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule, 
     BrowserAnimationsModule,
     AppRoutingModule,
-    DashboardModule,
+    FarmModule,
     InputModule, 
     HeaderModule,
     MatButtonModule,

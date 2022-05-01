@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard.component';
-import { DashboardRoutingModule } from './dashboard-routing.module';
+import { FarmComponent } from './farm.component';
+import { FarmRoutingModule } from './farm-routing.module';
 import { BannerModule } from '@aegro/ui';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [FarmComponent],
   imports: [
     CommonModule, 
-    DashboardRoutingModule,
+    FarmRoutingModule,
     HttpClientModule,
     BannerModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
-  exports: [DashboardComponent]
+  exports: [FarmComponent]
 })
-export class DashboardModule {}
+export class FarmModule {}
