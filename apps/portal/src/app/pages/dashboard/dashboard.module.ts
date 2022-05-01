@@ -5,13 +5,16 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { BannerModule } from '@aegro/ui';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
     CommonModule, 
     DashboardRoutingModule,
     HttpClientModule,
-    BannerModule
+    BannerModule,
+    MatCardModule
   ],
   exports: [DashboardComponent]
 })
