@@ -1,0 +1,10 @@
+@import '../scss/utils';
+
+.container {
+    width: 100%;
+    padding: 15px;
+    @include media-lg {
+        max-width: 1120px;
+        margin: auto;
+    }
+}

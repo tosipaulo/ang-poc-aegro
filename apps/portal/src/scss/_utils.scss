@@ -1,0 +1,39 @@
+@function em($size) {
+    $remSize: $size / 16;
+    @return #{$remSize}em;
+}
+
+@function rem($size) {
+    $remSize: $size / 16;
+    @return #{$remSize}rem;
+}
+
+@mixin media-tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-1024 {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin media-md {
+    @media (min-width: 1170px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media (min-width: 1300px) { 
+        @content;
+    }
+}
+
+@mixin max-screen1024 {
+    @media (max-width: 1023px) { 
+        @content;
+    }
+}

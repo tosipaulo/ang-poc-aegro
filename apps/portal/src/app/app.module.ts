@@ -4,10 +4,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
-import { InputModule } from '@aegro/ui';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { HeaderModule, InputModule } from '@aegro/ui';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, InputModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule, 
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    DashboardModule,
+    InputModule, 
+    HeaderModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
