@@ -9,7 +9,9 @@
             <ng-container *ngIf="(farm$ | async)?.length">
                 <mat-card class="farm__card" *ngFor="let farm of (farm$ | async)">
                     <mat-card-header>
-                        <div mat-card-avatar class="farm__card__avatar"></div>
+                        <div mat-card-avatar class="farm__card__avatar">
+                            <mat-icon>agriculture</mat-icon>
+                        </div>
                         <mat-card-title>{{farm?.name}}</mat-card-title>
                         <mat-card-subtitle>
                             {{(farm.chunks.length <= 1) ? 'Talhão ' : 'Talhões '}}

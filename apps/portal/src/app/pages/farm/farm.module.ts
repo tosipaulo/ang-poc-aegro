@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [FarmComponent],
@@ -16,7 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     BannerModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [FarmComponent]
 })
