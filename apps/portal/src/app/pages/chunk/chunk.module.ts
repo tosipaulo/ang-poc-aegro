@@ -11,9 +11,11 @@ import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
+import { ListChunkComponent } from './components/list-chunk/list-chunk.component';
+import { CreateChunkComponent } from './components/create-chunk/create-chunk.component';
 
 @NgModule({
-  declarations: [ChunkComponent],
+  declarations: [ChunkComponent, ListChunkComponent, CreateChunkComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -24,8 +26,8 @@ import { MatListModule } from '@angular/material/list';
     MatTableModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatListModule
+    MatListModule,
   ],
-  exports: [ChunkComponent]
+  exports: [ChunkComponent],
 })
 export class ChunkModule {}

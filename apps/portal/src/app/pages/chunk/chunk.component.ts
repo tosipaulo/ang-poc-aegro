@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { FarmModel } from '../../models/farm.model';
-import { ChunkService } from './services/chunk.service';
+import { ChunkModel, FarmModel } from '../../models/farm.model';
 
 @Component({
   selector: 'aegro-chunk',
@@ -13,17 +10,12 @@ import { ChunkService } from './services/chunk.service';
 export class ChunkComponent implements OnInit {
 
   farm!: FarmModel;
+  farmId!: string;
   routeStateFarm: any;
-  formChunk!: FormGroup;
-
+  
   displayedColumns: string[] = ['name', 'size', 'action'];
 
-  constructor(
-    private router: Router, 
-    private fb: FormBuilder,
-    private chunkService: ChunkService,
-    private snackBar: MatSnackBar
-    ){
+  constructor(private router: Router){
 
     if(this.router.getCurrentNavigation()?.extras.state) {
       this.routeStateFarm = (this.router.getCurrentNavigation()?.extras.state as FarmModel);
@@ -34,26 +26,11 @@ export class ChunkComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.formChunk = this.fb.group({
-        name: [''],
-        size: ['']
-      })
+      this.farmId = this.farm?._id as string;
   }
 
-  onSubmit() {
-    const {name, size} = this.formChunk.value
-    const payloadChunk = {
-      farmId: this.farm._id,
-      name,
-      size
-    }
-
-
-    this.chunkService.createChunk(payloadChunk)
-      .subscribe(responseChunk => {
-        this.formChunk.reset();
-        this.snackBar.open(responseChunk?.message, 'fechar');
-        this.farm.chunks?.push({name});
-      });
+  onCreateSuccess(chunk: ChunkModel) {
+    this.farm.chunks?.push(chunk);
   }
+  
 }
