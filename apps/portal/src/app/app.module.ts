@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FarmModule } from './pages/farm/farm.module';
-import { HeaderModule, InputModule } from '@aegro/ui';
+import { BannerModule, HeaderModule, InputModule } from '@aegro/ui';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -20,7 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
     InputModule, 
     HeaderModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    BannerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

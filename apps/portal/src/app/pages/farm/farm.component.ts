@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
+import { Router } from '@angular/router';
 import { FarmModel } from '../../models/farm.model';
 import { CreateComponent } from './components/create/create.component';
 import { FarmService } from './services/farm.service';
@@ -15,7 +16,8 @@ export class FarmComponent implements OnInit  {
   
   constructor(
     private farmService: FarmService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -33,5 +35,10 @@ export class FarmComponent implements OnInit  {
         this.listFarm = [resultCreate, ...this.listFarm]
       })
     });
+  }
+
+  addChunk(farm: FarmModel) {
+    console.log(farm)
+    this.router.navigateByUrl(`/fazenda/${farm._id}`)
   }
 }
