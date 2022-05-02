@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FarmModel } from '../../models/farm.model';
@@ -41,15 +41,19 @@ export class ChunkComponent implements OnInit {
   }
 
   onSubmit() {
+    const {name, size} = this.formChunk.value
     const payloadChunk = {
       farmId: this.farm._id,
-      ...this.formChunk.value
+      name,
+      size
     }
+
 
     this.chunkService.createChunk(payloadChunk)
       .subscribe(responseChunk => {
         this.formChunk.reset();
         this.snackBar.open(responseChunk?.message, 'fechar');
+        this.farm.chunks?.push({name});
       });
   }
 }
