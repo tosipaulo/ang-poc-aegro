@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'localhost:3200'
+  api: 'https://node-poc-aegro.herokuapp.com'
 };

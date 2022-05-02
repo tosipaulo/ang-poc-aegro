@@ -8,18 +8,34 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
-  declarations: [FarmComponent],
+  declarations: [FarmComponent, ModalComponent],
   imports: [
-    CommonModule, 
+    CommonModule,
     FarmRoutingModule,
     HttpClientModule,
     BannerModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
-  exports: [FarmComponent]
+  exports: [FarmComponent],
+  entryComponents: [
+    ModalComponent
+  ],
+  providers: [
+    {provide: MatDialogRef , useValue:{} },
+    { provide: MAT_DIALOG_DATA, useValue: {} }
+  ]
 })
 export class FarmModule {}

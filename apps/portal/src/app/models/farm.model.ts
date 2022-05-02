@@ -5,12 +5,12 @@ interface Production {
 }
 
 interface Chunk {
-    name: string;
-    size: number;
-    productions: Production[];
+    name?: string;
+    size?: number;
+    productions?: Production[];
 }
 
 export interface FarmModel {
     name?: string;
-    chunks: Chunk[];
+    chunks?: Chunk[];
 }

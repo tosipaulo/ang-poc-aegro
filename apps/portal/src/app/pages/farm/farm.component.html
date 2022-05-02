@@ -4,18 +4,20 @@
     </aegro-banner>
 
     <div class="farm__content  box-container">
-        <button mat-raised-button color="primary">Adicionar fazenda</button>
+        <button mat-raised-button color="primary" (click)="openForm()">Adicionar fazenda</button>
         <div class="farm__cards">
-            <ng-container *ngIf="(farm$ | async)?.length">
-                <mat-card class="farm__card" *ngFor="let farm of (farm$ | async)">
+            <ng-container *ngIf="listFarm?.length">
+                <mat-card class="farm__card" *ngFor="let farm of listFarm">
                     <mat-card-header>
                         <div mat-card-avatar class="farm__card__avatar">
                             <mat-icon>agriculture</mat-icon>
                         </div>
                         <mat-card-title>{{farm?.name}}</mat-card-title>
                         <mat-card-subtitle>
-                            {{(farm.chunks.length <= 1) ? 'Talhão ' : 'Talhões '}}
-                            {{farm.chunks.length}}
+                            <ng-container *ngIf="farm && farm.chunks"> 
+                                {{farm.chunks.length <= 1 ? 'Talhão ' : 'Talhões '}}
+                                {{farm.chunks.length}}
+                            </ng-container>
                         </mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-actions>

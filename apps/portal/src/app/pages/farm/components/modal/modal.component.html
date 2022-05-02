@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Adicionar</h1>
+<div mat-dialog-content>
+    <p>Cadastre sua fazenda.</p>
+    <mat-form-field appearance="outline">
+        <mat-label>Nome da fazenda</mat-label>
+        <input matInput placeholder="Fazenda do Tosi" [(ngModel)]="data.name">
+        <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button >No Thanks</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="data">Cadastrar</button>
+</div>

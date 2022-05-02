@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import {MatDialog } from '@angular/material/dialog'
 import { FarmModel } from '../../models/farm.model';
+import { ModalComponent } from './components/modal/modal.component';
 import { FarmService } from './services/farm.service';
 
 @Component({
@@ -10,11 +11,27 @@ import { FarmService } from './services/farm.service';
 })
 export class FarmComponent implements OnInit  {
 
-  farm$!: Observable<FarmModel[]>;
+  listFarm!: FarmModel[];
   
-  constructor(private farmService: FarmService) {}
+  constructor(
+    private farmService: FarmService,
+    public dialog: MatDialog
+    ) {}
 
   ngOnInit(): void {
-      this.farm$ = this.farmService.getFarms();
+     this.farmService.getFarms().subscribe(listFarm => this.listFarm = listFarm);
+  }
+
+  openForm() {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '350px',
+      data: {name: '', chunks: []}
+    });
+
+    dialogRef.afterClosed().subscribe(resultCreate => {
+      this.farmService.createFarm(resultCreate.name).subscribe(() => {
+        this.listFarm = [resultCreate, ...this.listFarm]
+      })
+    });
   }
 }
