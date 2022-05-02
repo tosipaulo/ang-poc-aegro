@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FarmModel } from '../../models/farm.model';
+import { ChunkService } from './services/chunk.service';
 
 @Component({
   selector: 'aegro-chunk',
@@ -16,7 +18,13 @@ export class ChunkComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'size', 'action'];
 
-  constructor(private router: Router, private fb: FormBuilder){
+  constructor(
+    private router: Router, 
+    private fb: FormBuilder,
+    private chunkService: ChunkService,
+    private snackBar: MatSnackBar
+    ){
+
     if(this.router.getCurrentNavigation()?.extras.state) {
       this.routeStateFarm = (this.router.getCurrentNavigation()?.extras.state as FarmModel);
       if(this.routeStateFarm) {
@@ -27,8 +35,8 @@ export class ChunkComponent implements OnInit {
 
   ngOnInit(): void {
       this.formChunk = this.fb.group({
-        name: ['', Validators.required],
-        size: ['', Validators.required]
+        name: [''],
+        size: ['']
       })
   }
 
@@ -38,6 +46,10 @@ export class ChunkComponent implements OnInit {
       ...this.formChunk.value
     }
 
-    console.log(payloadChunk)
+    this.chunkService.createChunk(payloadChunk)
+      .subscribe(responseChunk => {
+        this.formChunk.reset();
+        this.snackBar.open(responseChunk?.message, 'fechar');
+      });
   }
 }
