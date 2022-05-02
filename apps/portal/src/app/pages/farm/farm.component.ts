@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog } from '@angular/material/dialog'
+import { MatDialog } from '@angular/material/dialog'
 import { FarmModel } from '../../models/farm.model';
 import { CreateComponent } from './components/create/create.component';
 import { FarmService } from './services/farm.service';

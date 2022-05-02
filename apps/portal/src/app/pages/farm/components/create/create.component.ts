@@ -5,8 +5,7 @@ import { FarmModel } from '../../../../models/farm.model';
 
 @Component({
   selector: 'aegro-create-farm',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss'],
+  templateUrl: './create.component.html'
 })
 export class CreateComponent {
 
