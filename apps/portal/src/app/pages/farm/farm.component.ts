@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog } from '@angular/material/dialog'
 import { FarmModel } from '../../models/farm.model';
-import { ModalComponent } from './components/modal/modal.component';
+import { CreateComponent } from './components/create/create.component';
 import { FarmService } from './services/farm.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class FarmComponent implements OnInit  {
   }
 
   openForm() {
-    const dialogRef = this.dialog.open(ModalComponent, {
+    const dialogRef = this.dialog.open(CreateComponent, {
       width: '350px',
       data: {name: '', chunks: []}
     });

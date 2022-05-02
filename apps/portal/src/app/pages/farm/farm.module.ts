@@ -12,10 +12,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-import { ModalComponent } from './components/modal/modal.component';
+import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
-  declarations: [FarmComponent, ModalComponent],
+  declarations: [FarmComponent, CreateComponent],
   imports: [
     CommonModule,
     FarmRoutingModule,
@@ -31,7 +31,7 @@ import { ModalComponent } from './components/modal/modal.component';
   ],
   exports: [FarmComponent],
   entryComponents: [
-    ModalComponent
+    CreateComponent
   ],
   providers: [
     {provide: MatDialogRef , useValue:{} },
