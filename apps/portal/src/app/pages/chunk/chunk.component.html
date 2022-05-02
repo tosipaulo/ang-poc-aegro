@@ -1,1 +1,23 @@
-<p>chunk works!</p>
+<div class="chunk">
+    <h1>Criar talhão para: {{farm?.name}}</h1>
+    <div class="chunk__form">
+        <form [formGroup]="formChunk" (submit)="onSubmit()">
+            <mat-form-field appearance="outline" class="chunk__form__group">
+                <mat-label>Nome do talhão</mat-label>
+                <input matInput placeholder="Talhão 01" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="chunk__form__group">
+                <mat-label>Tamanho (ha)</mat-label>
+                <input matInput type="number" placeholder="1000" formControlName="size">
+            </mat-form-field>
+            <button mat-raised-button type="submit" color="primary">Cadastrar</button>
+        </form>
+    </div>
+    <div>
+        <p>Lista de talhões da: {{farm?.name}}</p>
+        <div class="chunk__list">
+            @TODO: criar componente da tabela
+            @TODO: fazer a lista
+        </div>
+    </div>
+</div>

@@ -38,7 +38,7 @@ export class FarmComponent implements OnInit  {
   }
 
   addChunk(farm: FarmModel) {
-    console.log(farm)
-    this.router.navigateByUrl(`/fazenda/${farm._id}`)
+    const route = `/fazenda/${farm._id}`
+    this.router.navigate([route], {state: {farm}})
   }
 }
